@@ -1,0 +1,95 @@
+.content {
+  table {
+    width: 750px;
+    margin: auto;
+
+    tr th {
+      letter-spacing: 1px;
+      font-weight: 500;
+    }
+
+    td .finished,
+    .open,
+    .wait,
+    .closed {
+      background-color: #727272;
+      border-radius: 50%;
+      width: 15px;
+      height: 15px;
+      display: block;
+      margin: auto;
+    }
+
+    .wait {
+      background-color: #f1c40f;
+      animation: waitPulse 2s infinite;
+    }
+
+    .open {
+      background-color: #27ae60;
+      animation: openPulse 2s infinite;
+    }
+
+    .status-open {
+      font-weight: 500;
+    }
+
+    .status-closed {
+      color: #838383;
+      &:hover {
+        color: #494949;
+      }
+    }
+
+    td,
+    th {
+      text-align: center;
+      padding: 8px;
+      cursor: pointer;
+    }
+  }
+}
+
+@keyframes waitPulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 177, 66, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(255, 177, 66, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 177, 66, 0);
+  }
+}
+
+@keyframes openPulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 #27ae60;
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(255, 177, 66, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 177, 66, 0);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .test {
+    display: none;
+  }
+
+  table {
+    width: 4% !important;
+  }
+}

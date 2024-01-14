@@ -1,0 +1,175 @@
+.content {
+  height: auto !important;
+  user-select: none;
+
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  .health-content {
+    display: flex;
+    max-width: 1000px;
+    width: 100%;
+    height: auto;
+    flex-wrap: wrap;
+    gap: 20px;
+    /* Screen larger than 600px? 2 column */
+    .input-container {
+      // max-width: 1200px;
+      // margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-gap: 1rem;
+      grid-template-columns: repeat(1, 1fr);
+    }
+    @media (min-width: 600px) {
+      .input-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Screen larger than 900px? 3 columns */
+    @media (min-width: 900px) {
+      .input-container {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    div {
+      display: flex;
+      flex-direction: column;
+      // width: 30%;
+      // height: 80px;
+      position: relative;
+      margin: 0 0 15px 0;
+
+      .edit-icon {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        cursor: pointer;
+      }
+    }
+
+    .health-textarea {
+      width: 100%;
+      height: auto;
+      display: flex;
+    }
+
+    .checkbox-area {
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: row;
+      text-align: center;
+      flex-wrap: wrap;
+      div{
+        width: 150px;
+        flex-grow: 1;
+        span{
+          padding: 12px;
+          margin: auto;
+        }
+      }
+      .check {
+        // width: 30px;
+        color:  var(--color-secondary);
+        &:disabled{
+          background-color: var(--disabled-color);
+          color: var(--disabled-color);
+        }
+      }
+    }
+
+    .profile-input-disable {
+      caret-color: transparent;
+      outline: none;
+      user-select: none;
+      color: #555555;
+    }
+
+    .profile-input,
+    .profile-input-disable,
+    .profile-textarea {
+      margin: 10px 0;
+      border-radius: 10px;
+      width: 100%;
+      border: 1px #c6c6c6 solid;
+      padding: 10px 15px;
+      &:disabled{
+        background-color: var(--disabled-color);
+      }
+    }
+
+    .profile-textarea {
+      width: 100%;
+      padding: 16px;
+      border-radius: 8px;
+      // background-color: #fefefe;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+      resize: vertical;
+      min-height: 130px;
+    }
+
+    img {
+      width: 500px;
+      margin: auto;
+    }
+
+    .hide-element-check {
+      display: none;
+      opacity: 0;
+      transition: 0.2s;
+      height: 0;
+      margin: 0;
+      width: 0;
+    }
+
+    .show-element-check {
+      display: block;
+      opacity: 1;
+      height: auto;
+      transition: 0.2s;
+      margin-right: 6px;
+      width: 100%;
+    }
+  }
+  .btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    .cancel-btn{
+      background-color:transparent;
+      border: 1px solid var(--color-primary);
+      color: var(--color-primary);
+      &:hover{
+        background-color:var(--color-primary);
+        color: #fff;
+      }
+    }
+    button {
+      border-radius: 10px;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .checkbox-area {
+    // display: flex;
+    // justify-content: left;
+    // margin: 0 !important;
+    // width: 590px !important;
+    // overflow: scroll;
+
+    // div {
+    //   width: 110px !important;
+    // }
+  }
+  .health-content {
+    // flex-direction: column;
+
+    // textarea {
+    //   width: 35% !important;
+    // }
+  }
+}

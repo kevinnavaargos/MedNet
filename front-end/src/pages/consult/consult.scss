@@ -1,0 +1,60 @@
+.content {
+  user-select: none;
+  height: auto !important;
+
+  .data-error {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .new-consult {
+    position: relative;
+
+    div {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  textarea {
+    width: 100%;
+    max-width: 300px;
+    padding: 16px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px #c6c6c6 solid;
+    resize: vertical;
+    min-height: 130px;
+    resize: none;
+  }
+  .btn{
+    margin: 10px 0;
+    max-width: 300px;
+  }
+  textarea::-webkit-scrollbar {
+    display: none;
+  }
+
+  input:not(input[type='checkbox']) {
+    margin: 10px 0;
+    border-radius: 10px;
+    max-width: 300px;
+    width: 100%;
+    border: 1px #c6c6c6 solid;
+    padding: 10px 15px;
+  }
+
+  .disable-input {
+    caret-color: transparent;
+    outline: none;
+    user-select: none;
+    color: #555555;
+  }
+}

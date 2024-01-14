@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+  letter-spacing: 0.2px;
+}
+
+body {
+  background: var(--color-white);
+  color: var(--color-primary-font);
+}
+
+body,
+input,
+button,
+textarea {
+  font: 400 16px "Montserrat", sans-serif;
+}
+
+.content{
+  & > main{
+    margin-top:100px;
+    margin-left:250px;
+  }
+}
+
+.gradient{
+  background: rgb(118,34,86);
+  background: linear-gradient(90deg, rgba(118,34,86,1) 0%, rgba(74,41,88,1) 100%);
+}
+@media only screen and (max-width: 900px) {
+  .content{
+    & > main{
+      margin-left:0;
+    }
+  }
+}
+

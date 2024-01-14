@@ -1,0 +1,137 @@
+.content {
+  height: 100vh;
+  user-select: none;
+  overflow: hidden;
+
+  main {
+    display: flex;
+
+    > img {
+      padding: 50px;
+      width: 600px;
+      position: absolute;
+      right: 0;
+    }
+  }
+
+  .profile {
+    flex: 20;
+    padding: 30px;
+    animation: fade 0.2s linear;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    .input-container{
+      width:50%;
+      max-width:600px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+    }
+    .image-container{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding: 15px;
+      width: 50%;
+      img{
+        max-width:450px;
+        width:100%;
+      }
+    }
+    h2 {
+      font-weight: 500;
+
+      span {
+        color: #ff6584;
+      }
+    }
+
+    .button-container {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      button {
+        max-width: 300px;
+        width: 100%;
+        margin: 10px;
+        border-radius: 10px;
+      }
+    }
+
+    .welcome-content {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      div {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+        position: relative;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        .edit-icon {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          cursor: pointer;
+        }
+      }
+
+      .profile-input-disable {
+        @extend .profile-input-disable;
+        caret-color: transparent;
+        outline: none;
+        user-select: none;
+        background-color: var(--disabled-color);
+        color: #555555;
+      }
+
+      .profile-input{
+        margin: 10px 0;
+        border-radius: 10px;
+        max-width: 300px;
+        width: 100%;
+        border: 1px #c6c6c6 solid;
+        padding: 10px 15px;
+      }
+
+      img {
+        width: 100%;
+        max-width: 500px;
+        margin: auto;
+      }
+    }
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .content{
+    .profile{
+      .input-container{
+        width: 100%;
+      }
+      .image-container{
+        display: none;
+      }
+    }
+  }
+}

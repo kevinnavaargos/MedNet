@@ -1,0 +1,75 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id       String    @id @default(uuid())
+  username String    @unique
+  email    String    @unique
+  password String
+  role     Role      @default(USER)
+  userData UserData?
+  consult  Consult[]
+
+  @@map("Users")
+}
+
+model UserData {
+  id       String @id @default(cuid())
+  user     User   @relation(fields: [userId], references: [id])
+  userId   String @unique
+  fullname String
+  age      Int
+  sex      String
+  race     String
+  height   Float
+  weight   Float
+
+  healthData HealthData?
+
+  @@map("User_data")
+}
+
+model HealthData {
+  id               Int      @id @default(autoincrement())
+  userDataId       String   @unique
+  userData         UserData @relation(fields: [userDataId], references: [id])
+  comorbidity      String
+  isAlergic        Boolean
+  useCigars        Boolean
+  useDrugs         Boolean
+  useMedication    Boolean
+  useAlcohol       Boolean
+  howManyCigars    String
+  alergics         String
+  howMuchAlcohol   String
+  howManyDrugs     String
+  whichMedications String
+  isPregnant       Boolean  @default(false)
+
+  @@map("Health_data")
+}
+
+model Consult {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  user      User?    @relation(fields: [userId], references: [id])
+  userId    String
+  medicId   String
+  status    String
+  motive    String
+
+}
+
+enum Role {
+  USER
+  MEDIC
+}
